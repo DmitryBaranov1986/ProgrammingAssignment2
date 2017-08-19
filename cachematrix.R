@@ -1,7 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Following set of functions implement caching of inverse matrix calculation
 
-## Write a short comment describing this function
+## Creates special object for storing inverse matrix
 
 makeCacheMatrix <- function(x = matrix()) {
     slv <- NULL
@@ -31,16 +30,17 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## Returns matrix that is inverse. If exists, gets already calculated matrix, otherwise calculate it.
 
 cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
     slv <- x$getSlv()
+    # if a matrix already is inverse then return it
     if(!is.null(slv))
     {
         message("Getting cached matrix")
         return (slv)
     }
+    # else solve an inverse matrix
     message("Evaluating inverse matrix")
     data <- x$get()
     slv <- solve(data)
