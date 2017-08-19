@@ -43,7 +43,7 @@ cacheSolve <- function(x, ...) {
     # else solve an inverse matrix
     message("Evaluating inverse matrix")
     data <- x$get()
-    slv <- solve(data)
+    slv <- solve(data, ...)
     x$setSlv(slv)
     slv
 }
